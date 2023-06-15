@@ -1,0 +1,95 @@
+body, html {
+  height: 100%;
+}
+
+  
+.content {            /* aici modifici text si video content DONE*/
+  box-sizing: border-box;
+  height: 100%;
+  background: #FED;
+  font: 60px arial;
+  text-align: center;
+}
+
+.zipperable {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.zipperable .header, .zipperable .footer {   /* aici e de munca */
+  position: absolute;
+  top: -100%;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  border: 0 dashed silver;
+  transition: all 1s;
+  background: #4a6b7e;
+  background-size: cover;
+}
+.zipperable:hover .header, .zipperable:hover .footer {    /* unde dispare albastrul COMPLET*/
+  top: 100%;
+  bottom: -100%;
+}
+.zipperable:hover .header {       /* bucata de sus */
+  right: -33%;
+  border-top-left-radius: 50%;
+}
+.zipperable:hover .footer {        /* bucata de jos */
+  left: -33%;
+  border-top-right-radius: 50%;
+}
+.zipperable .header {
+  left: 50%;
+  border-left-width: 20px;       /* linie mijloc AICI TREBUIE UMBLAT LA FERMOAR*/
+}
+.zipperable .footer {
+  right: 50%;
+  border-right-width: 20px;
+}
+
+
+
+
+
+
+
+/* --------------BUCATA DE ZIPPER---------------- */
+
+
+
+
+.zipperable .zipper {     /* forma fundului de fermoar   DONE*/
+  right: 50%;
+  top: -87.5px;
+  margin-top: -490.75px;
+  margin-right: -37.5px;
+  width: 75px;
+  height: 100px;
+  border-bottom-right-radius: 50% 15%;
+  border-bottom-left-radius: 50% 15%;
+  background: #2e2e2e;
+  transition: all 1s;
+}
+.zipperable .zipper, .zipperable .zipper:before, .zipperable .zipper:after, .zipperable .zipper * {   /* fermoar care sta peste ecran DONE   */
+  content: "";
+  display: block;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+}
+.zipperable .zipper:before {   /* forma varfului de fermoar  DONE   */
+  width: 87.5px;
+  height: 87.5px;
+  margin-top: -90.75px;
+  right: -6.27px;
+  transform: rotate(135deg);
+  border-radius: 30%;
+  border-top-right-radius: 50%;
+  background: #2e2e2e;
+}
+.zipperable:hover .zipper {    /* se opreste in stanga la 120% DONE*/
+  transition-duration: 0.8s;
+  top: 160%;
+}
